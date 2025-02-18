@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    transition: background 1s ease-in-out;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1.5s ease-in-out forwards, pulse 2s infinite alternate;
+}
+/* Spider Thread */
+.spider-thread {
+    position: fixed;
+    top: 0;
+    left: 30%; /* Keep thread fixed at 30% */
+    transform: translateX(-50%);
+    width: 2px;
+    background: white;
+    height: 0px;
+    z-index: 999;
+    transition: height 0.1s linear;
+}
+
+/* Spider */
+.spider {
+    position: fixed;
+    left: calc(30% - 25px); /* Move left by half of the spider's width */
+    transform: translateX(0); /* Remove unnecessary shifting */
+    width: 50px;
+    height: 50px;
+    background: url('/Frontend/images/spider.svg') no-repeat center center / contain;
+    z-index: 1000;
+}
+
+.profile img {
+    width: 170px;
+    color:white;
+    height: 160px;
+    border-radius: 50%;
+    box-shadow: 0 8px 8px white;
+    transition: transform 0.3s ease-in-out;
+}
+.profile h2{
+    color: white;
+    font-size: 20px;
+    margin: 20px 0;
+}
+.profile p{
+    color: white;
+    font-size: 20px;
+    margin: 20px 0;
+}
+.profile img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.about, .projects, footer {
+    padding: 50px;
+    text-align: center;
+    background: white;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-in-out forwards, bounceEffect 3s infinite;
+}
+
+.about {
+    background: white;
+    border-bottom: 3px solid #ddd;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    padding: 50px;
+}
+
+.projects {
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 0px;
+}
+
+.projects:nth-child(even) {
+    animation: fadeInUp 1s ease-in-out forwards, slideLeft 1.5s ease-in-out;
+}
+
+.projects:nth-child(odd) {
+    animation: fadeInUp 1s ease-in-out forwards, slideRight 1.5s ease-in-out;
+}
+
+footer {
+    background: black;
+    color: white;
+    margin-top: 0px;
+}
+
+.contact-icons a {
+    font-size: 24px;
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-icons a:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.contact-icons .gmail {
+    cursor: pointer;
+}
+
+.contact-icons .gmail:hover {
+    transform: scale(1.3);
+}
+
+.contact-icons a {
+    font-size: 24px;
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-icons a:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.contact-icons .gmail {
+    cursor: pointer;
+}
+
+.contact-icons .gmail:hover {
+    transform: scale(1.3);
+}
+
+.contact-icons .gmail:active {
+    transform: scale(1.1);
+}
+
+.contact-icons .gmail::after {
+    content: "";
+    font-size: 12px;
+    display: block;
+    color: #fff;
+    opacity: 0.7;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+@keyframes bounceEffect {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes slideLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes moveSmiley {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(100vw - 50px)); }
+}
+
+.moving-smiley.scrolling {
+    animation: moveSmiley 2s linear forwards;
+}
